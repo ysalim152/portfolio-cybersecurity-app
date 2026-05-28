@@ -1,6 +1,9 @@
 export function initThemeToggle() {
     const themeToggleBtn = document.querySelector('.nav__theme-toggle');
-    if (!themeToggleBtn) return;
+    if (!themeToggleBtn) {
+        console.error("Theme toggle button (.nav__theme-toggle) not found. The theme switcher will not work.");
+        return;
+    }
 
     const body = document.body;
     const moonIcon = '<i class="fas fa-moon"></i>';
