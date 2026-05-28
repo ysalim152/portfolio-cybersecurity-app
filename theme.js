@@ -1,5 +1,5 @@
 export function initThemeToggle() {
-    const themeToggleBtn = document.querySelector('.theme-toggle');
+    const themeToggleBtn = document.querySelector('.nav__theme-toggle');
     if (!themeToggleBtn) return;
 
     const body = document.body;
