@@ -1,4 +1,4 @@
-# Cybersecurity Portfolio - Alex Chen
+# Cybersecurity Portfolio - Salim YOUNSI
 
 A professional, modern cybersecurity portfolio website designed for SOC Analyst and Cybersecurity Analyst career paths. Features a dark cybersecurity aesthetic with responsive design and interactive elements.
 
