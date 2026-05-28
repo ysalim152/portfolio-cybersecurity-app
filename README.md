@@ -14,7 +14,7 @@ A professional, modern cybersecurity portfolio website designed for SOC Analyst 
 
 ### Homepage
 - **Headline**: "Securing Networks, Protecting Data: Aspiring SOC Analyst"
-- **Professional Bio**: Comprehensive introduction highlighting expertise and passion
+- **Professional Bio**: Introduction highlighting expertise in network security, vulnerability assessment, and incident response.
 - **Call-to-Action Buttons**: View Projects and Download CV
 
 ### About Me
@@ -24,38 +24,27 @@ A professional, modern cybersecurity portfolio website designed for SOC Analyst 
 
 ### Technical Skills
 - **Network Security**: TCP/IP (85%), Wireshark (80%), Firewall Config (75%)
-- **Tools & Technologies**: Kali Linux (90%), Python (85%), Splunk SIEM (70%)
+- **Tools & Technologies**: Linux (90%), Python Scripting (85%), Splunk SIEM (70%)
 - **Security Concepts**: Risk Assessment (80%), Incident Response (75%), IDS/IPS (70%)
 
 ### Cybersecurity Projects
 1. **Network Traffic Analysis with Wireshark**
    - Comprehensive traffic analysis and threat detection
    - Tools: Wireshark, TCP/IP, Packet Analysis
-
-2. **Kali Linux Penetration Testing Lab**
-   - Virtual penetration testing environment
-   - Tools: Kali Linux, Metasploit, Nmap
-
-3. **SIEM Dashboard Implementation**
+2. **SIEM Dashboard Implementation**
    - Splunk dashboard for security monitoring
    - Tools: Splunk, SIEM, Log Analysis
-
-4. **Web Application Security Testing**
-   - Burp Suite vulnerability assessment
-   - Tools: Burp Suite, OWASP, Vulnerability Assessment
-
-5. **Vulnerability Scanning with Nessus**
-   - Enterprise network scanning and reporting
-   - Tools: Nessus, CVSS, Risk Assessment
-
-6. **Python Security Automation Scripts**
+3. **Python Security Automation Scripts**
    - Custom security automation tools
    - Tools: Python, Automation, API Integration
+4. **SQL Database Security & Threat Analysis**
+   - User activity monitoring and anomaly detection
+   - Tools: SQL, Database Security, Threat Analysis
 
 ### Certifications & Training
-- **CompTIA Security+** (Certified 2023)
-- **Certified Ethical Hacker (CEH)** (In Progress)
-- **Certified Information Systems Security Professional (CISSP)** (Planned 2024)
+- **Cisco Network Security** (Certified 2022)
+- **Google Cybersecurity Professional Certificate** (In Progress)
+- **IBM Cybersecurity Analyst** (Planned 2027)
 
 ### Learning Journey Timeline
 - 2022: Started Cybersecurity Studies
@@ -71,7 +60,7 @@ A professional, modern cybersecurity portfolio website designed for SOC Analyst 
 ### Contact Section
 - Professional contact form
 - LinkedIn, GitHub, and email links
-- Location: San Francisco, CA
+- Location: Tizi-Ouzou, Algeria
 
 ## 🛠️ Technologies Used
 
@@ -117,7 +106,7 @@ This static website can be deployed on any web hosting service:
 2. **Projects**: Replace with your actual cybersecurity projects
 3. **Certifications**: Update with your current certifications
 4. **GitHub**: Link to your actual GitHub profile
-5. **Resume**: Add your CV as `resume.pdf`
+5. **Resume**: Add your CV as `assets/docs/CV-YOUNSI_Salim_En.pdf`
 6. **Colors**: Modify CSS custom properties for branding
 7. **Content**: Tailor text to match your experience level
 
