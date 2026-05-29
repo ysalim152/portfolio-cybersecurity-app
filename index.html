@@ -3,73 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO improvements -->
+    <meta name="description" content="Salim YOUNSI – Aspiring SOC Analyst passionate about cybersecurity, network security, and incident response.">
+    <meta name="author" content="Salim YOUNSI">
     <title>Salim YOUNSI - Cybersecurity Portfolio | SOC Analyst</title>
+    <!-- Favicon placeholder -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <!-- External CSS libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Local stylesheet (relative path — fixes absolute-path bug) -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<!-- FIX: body has both .page and potential .light-mode; theme toggle JS should add/remove light-mode on body -->
 <body class="page">
+
     <header class="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <i class="fas fa-shield-alt"></i> Salim YOUNSI | Cybersecurity Analyst
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                Salim YOUNSI | Cybersecurity Analyst
             </div>
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+            <ul class="nav__list" id="nav-list" role="list">
+                <li class="nav__item"><a href="#home"           class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="#about"          class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#skills"         class="nav__link">Skills</a></li>
+                <li class="nav__item"><a href="#projects"       class="nav__link">Projects</a></li>
                 <li class="nav__item"><a href="#certifications" class="nav__link">Certifications</a></li>
-                <li class="nav__item"><a href="#timeline" class="nav__link">Journey</a></li>
-                <li class="nav__item"><a href="#github" class="nav__link">GitHub</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                <li class="nav__item"><a href="#timeline"       class="nav__link">Journey</a></li>
+                <li class="nav__item"><a href="#github"         class="nav__link">GitHub</a></li>
+                <li class="nav__item"><a href="#contact"        class="nav__link">Contact</a></li>
             </ul>
-            <button class="nav__theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
+            <!-- Theme toggle -->
+            <button class="nav__theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+                <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
-            <div class="nav__hamburger">
+            <!-- Hamburger menu -->
+            <button class="nav__hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-list">
                 <span class="nav__hamburger-line"></span>
                 <span class="nav__hamburger-line"></span>
                 <span class="nav__hamburger-line"></span>
-            </div>
+            </button>
         </nav>
     </header>
-    <main>
-        <section id="home" class="hero">
+
+    <!-- FIX: main needs padding-top so content isn't hidden under fixed header -->
+    <main style="padding-top: 70px;">
+
+        <!-- ===== HERO ===== -->
+        <section id="home" class="hero" aria-label="Introduction">
+            <!-- Particle layer (populated by JS) -->
+            <div class="hero__particles" aria-hidden="true"></div>
+
             <div class="hero__content animate__animated animate__fadeInUp">
                 <h1 class="hero__title">Securing Networks, Protecting Data: Aspiring SOC Analyst</h1>
-                <p class="hero__subtitle">Passionate about Cybersecurity, problem-solving, and protecting people and organizations from security threats. Through continuous learning and professional development, I aim to support organizations by helping maintain secure systems and protecting sensitive information.</p>
+                <p class="hero__subtitle">
+                    Passionate about Cybersecurity, problem-solving, and protecting people and organizations from
+                    security threats. Through continuous learning and professional development, I aim to support
+                    organizations by helping maintain secure systems and protecting sensitive information.
+                </p>
                 <div class="hero__buttons">
-                    <a href="https://github.com/ysalim152/Cybersecurity-portfolio" class="btn btn--primary" target="_blank">View Projects</a>
-                    <a href="assets/docs/CV-YOUNSI_Salim_En.pdf" class="btn btn--secondary" download>Download CV</a>
+                    <a href="https://github.com/ysalim152/Cybersecurity-portfolio"
+                       class="btn btn--primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i> View Projects
+                    </a>
+                    <!-- FIX: download attribute works correctly with relative path -->
+                    <a href="assets/docs/CV-YOUNSI_Salim_En.pdf"
+                       class="btn btn--secondary"
+                       download="CV-YOUNSI_Salim.pdf">
+                        <i class="fas fa-download" aria-hidden="true"></i> Download CV
+                    </a>
                 </div>
             </div>
-            <div class="hero__animation">
+
+            <div class="hero__animation" aria-hidden="true">
                 <div class="hero__cyber-icon"><i class="fas fa-lock"></i></div>
                 <div class="hero__cyber-icon"><i class="fas fa-network-wired"></i></div>
                 <div class="hero__cyber-icon"><i class="fas fa-search"></i></div>
             </div>
         </section>
 
-        <section id="about" class="about section">
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="about section" aria-labelledby="about-title">
             <div class="container">
-                <h2 class="section__title">About Me</h2>
+                <h2 id="about-title" class="section__title">About Me</h2>
                 <div class="about__content">
                     <div class="about__text">
                         <p>As a dedicated cybersecurity student with a strong foundation in computer science, I am passionate about protecting digital assets from evolving cyber threats. My journey in cybersecurity began with a curiosity about how networks operate and has evolved into a comprehensive understanding of security principles, tools, and best practices.</p>
                         <p>I specialize in network security, vulnerability assessment, and incident response, with hands-on experience using industry-standard tools like Wireshark, Linux Operating Systems, SQL and Python programming languages. Currently pursuing certifications to become a certified SOC Analyst, I am eager to apply my skills in a professional environment to safeguard organizations against cyber attacks.</p>
                         <p>When not immersed in cybersecurity labs, I participate in CTF challenges, contribute to open-source security projects, and stay updated with the latest threat intelligence through industry publications and conferences.</p>
                     </div>
-                    <div class="about__stats">
-                        <div class="about__stat">
+                    <div class="about__stats" role="list">
+                        <div class="about__stat" role="listitem">
                             <h3 class="about__stat-number">50+</h3>
                             <p class="about__stat-label">Security Labs Completed</p>
                         </div>
-                        <div class="about__stat">
+                        <div class="about__stat" role="listitem">
                             <h3 class="about__stat-number">3</h3>
                             <p class="about__stat-label">Certifications Earned</p>
                         </div>
-                        <div class="about__stat">
+                        <div class="about__stat" role="listitem">
                             <h3 class="about__stat-number">100+</h3>
                             <p class="about__stat-label">Hours in CTF</p>
                         </div>
@@ -78,69 +113,73 @@
             </div>
         </section>
 
-        <section id="skills" class="skills section">
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" class="skills section" aria-labelledby="skills-title">
             <div class="container">
-                <h2 class="section__title">Technical Skills</h2>
+                <h2 id="skills-title" class="section__title">Technical Skills</h2>
                 <div class="skills__grid">
+                    <!-- Network Security -->
                     <div class="skills__category">
                         <h3 class="skills__category-title">Network Security</h3>
                         <div class="skills__item">
                             <span class="skills__item-name">TCP/IP Protocols</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="TCP/IP Protocols proficiency 85%">
                                 <div class="skills__progress" data-width="85%"></div>
                             </div>
                         </div>
                         <div class="skills__item">
                             <span class="skills__item-name">Wireshark Analysis</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Wireshark Analysis proficiency 80%">
                                 <div class="skills__progress" data-width="80%"></div>
                             </div>
                         </div>
                         <div class="skills__item">
                             <span class="skills__item-name">Firewall Configuration</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Firewall Configuration proficiency 75%">
                                 <div class="skills__progress" data-width="75%"></div>
                             </div>
                         </div>
                     </div>
+                    <!-- Tools & Technologies -->
                     <div class="skills__category">
-                        <h3 class="skills__category-title">Tools & Technologies</h3>
+                        <h3 class="skills__category-title">Tools &amp; Technologies</h3>
                         <div class="skills__item">
                             <span class="skills__item-name">Linux</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Linux proficiency 90%">
                                 <div class="skills__progress" data-width="90%"></div>
                             </div>
                         </div>
                         <div class="skills__item">
                             <span class="skills__item-name">Python Scripting</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Python Scripting proficiency 85%">
                                 <div class="skills__progress" data-width="85%"></div>
                             </div>
                         </div>
                         <div class="skills__item">
                             <span class="skills__item-name">Splunk SIEM</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Splunk SIEM proficiency 70%">
                                 <div class="skills__progress" data-width="70%"></div>
                             </div>
                         </div>
                     </div>
+                    <!-- Security Concepts -->
                     <div class="skills__category">
                         <h3 class="skills__category-title">Security Concepts</h3>
                         <div class="skills__item">
                             <span class="skills__item-name">Risk Assessment</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Risk Assessment proficiency 80%">
                                 <div class="skills__progress" data-width="80%"></div>
                             </div>
                         </div>
                         <div class="skills__item">
                             <span class="skills__item-name">Incident Response</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Incident Response proficiency 75%">
                                 <div class="skills__progress" data-width="75%"></div>
                             </div>
                         </div>
                         <div class="skills__item">
                             <span class="skills__item-name">IDS/IPS Systems</span>
-                            <div class="skills__progress-bar">
+                            <div class="skills__progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="IDS/IPS Systems proficiency 70%">
                                 <div class="skills__progress" data-width="70%"></div>
                             </div>
                         </div>
@@ -149,196 +188,187 @@
             </div>
         </section>
 
-        <section id="projects" class="projects section">
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" class="projects section" aria-labelledby="projects-title">
             <div class="container">
-                <h2 class="section__title">CyberSecurity Projects</h2>
+                <h2 id="projects-title" class="section__title">CyberSecurity Projects</h2>
                 <div class="projects__grid">
-                    <div class="projects__card" 
+
+                    <div class="projects__card"
                          data-details="Conducted comprehensive network traffic analysis using Wireshark to identify suspicious patterns, protocol anomalies, and potential security threats. This project involved capturing live network data, filtering for specific protocols like HTTP, DNS, and ICMP, and analyzing packet contents to uncover potential reconnaissance activities or data exfiltration attempts. Created detailed reports on findings and recommended mitigation strategies such as implementing stricter firewall rules and updating IDS signatures."
-                         data-link="https://github.com/ysalim152/"
-                    >
-                        <div class="projects__card-icon">
+                         data-link="https://github.com/ysalim152/">
+                        <div class="projects__card-icon" aria-hidden="true">
                             <i class="fas fa-network-wired"></i>
                         </div>
                         <h3 class="projects__card-title">Network Traffic Analysis with Wireshark</h3>
                         <p class="projects__card-description">Conducted comprehensive network traffic analysis using Wireshark to identify suspicious patterns, protocol anomalies, and potential security threats. Created detailed reports on findings and recommended mitigation strategies.</p>
-                        <div class="projects__card-tools">
+                        <div class="projects__card-tools" aria-label="Technologies used">
                             <span class="projects__card-tool">Wireshark</span>
                             <span class="projects__card-tool">TCP/IP</span>
                             <span class="projects__card-tool">Packet Analysis</span>
                         </div>
-                        <a href="#" class="projects__card-link">View Details</a>
+                        <!-- FIX: use button instead of <a href="#"> to avoid broken anchor -->
+                        <button class="projects__card-link" type="button" aria-label="View details for Network Traffic Analysis with Wireshark">View Details</button>
                     </div>
+
                     <div class="projects__card"
                          data-details="Designed and implemented a SIEM dashboard using Splunk to provide real-time security monitoring and threat detection. The project involved integrating log sources from various systems including firewalls, servers, and applications. Custom alerts and correlation searches were created to detect specific attack patterns like brute-force attempts, malware infections, and policy violations. The dashboard provided a centralized view of the organization's security posture, enabling faster incident response."
-                         data-link="https://github.com/ysalim152/"
-                    >
-                        <div class="projects__card-icon">
+                         data-link="https://github.com/ysalim152/">
+                        <div class="projects__card-icon" aria-hidden="true">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3 class="projects__card-title">SIEM Dashboard Implementation</h3>
                         <p class="projects__card-description">Configured a Splunk SIEM dashboard to monitor security events, create custom alerts for threat detection, and generate compliance reports. Integrated multiple log sources for comprehensive visibility.</p>
-                        <div class="projects__card-tools">
+                        <div class="projects__card-tools" aria-label="Technologies used">
                             <span class="projects__card-tool">Splunk</span>
                             <span class="projects__card-tool">SIEM</span>
                             <span class="projects__card-tool">Log Analysis</span>
                         </div>
-                        <a href="#" class="projects__card-link">View Details</a>
+                        <button class="projects__card-link" type="button" aria-label="View details for SIEM Dashboard Implementation">View Details</button>
                     </div>
+
                     <div class="projects__card"
                          data-details="Developed a suite of Python scripts to automate routine security tasks. This included a script to parse and analyze web server logs for malicious activity, a tool to query threat intelligence APIs (like VirusTotal) for suspicious IPs and file hashes, and a basic script for static analysis of potentially malicious files. These automation scripts significantly reduced manual effort and improved the efficiency of security operations."
-                         data-link="https://github.com/ysalim152/"
-                    >
-                        <div class="projects__card-icon">
+                         data-link="https://github.com/ysalim152/">
+                        <div class="projects__card-icon" aria-hidden="true">
                             <i class="fab fa-python"></i>
                         </div>
                         <h3 class="projects__card-title">Python Security Automation Scripts</h3>
                         <p class="projects__card-description">Developed Python scripts for automating security tasks including log parsing, threat intelligence gathering, and basic malware analysis. Integrated with APIs for enhanced functionality.</p>
-                        <div class="projects__card-tools">
+                        <div class="projects__card-tools" aria-label="Technologies used">
                             <span class="projects__card-tool">Python</span>
                             <span class="projects__card-tool">Automation</span>
                             <span class="projects__card-tool">API Integration</span>
                         </div>
-                        <a href="#" class="projects__card-link">View Details</a>
+                        <button class="projects__card-link" type="button" aria-label="View details for Python Security Automation Scripts">View Details</button>
                     </div>
+
                     <div class="projects__card"
                          data-details="Focused on enhancing database security by designing and executing complex SQL queries for user activity monitoring and anomaly detection. This project involved analyzing database logs, tracking user permissions, and identifying unusual data access patterns that could indicate an insider threat or a compromised account. Implemented access control reviews and developed reports to ensure compliance with data security policies."
-                         data-link="https://github.com/ysalim152/"
-                    >
-                        <div class="projects__card-icon">
+                         data-link="https://github.com/ysalim152/">
+                        <div class="projects__card-icon" aria-hidden="true">
                             <i class="fas fa-database"></i>
                         </div>
-                        <h3 class="projects__card-title">SQL Database Security & Threat Analysis</h3>
+                        <h3 class="projects__card-title">SQL Database Security &amp; Threat Analysis</h3>
                         <p class="projects__card-description">
-                            Designed and executed SQL queries for database monitoring, user activity analysis, 
-                            and detection of suspicious behavior. Worked with relational databases to identify 
+                            Designed and executed SQL queries for database monitoring, user activity analysis,
+                            and detection of suspicious behavior. Worked with relational databases to identify
                             anomalies, manage access controls, and improve data security practices.
                         </p>
-                        <div class="projects__card-tools">
+                        <div class="projects__card-tools" aria-label="Technologies used">
                             <span class="projects__card-tool">SQL</span>
                             <span class="projects__card-tool">Database Security</span>
                             <span class="projects__card-tool">Threat Analysis</span>
                         </div>
-                        <a href="#" class="projects__card-link">View Details</a>
+                        <button class="projects__card-link" type="button" aria-label="View details for SQL Database Security and Threat Analysis">View Details</button>
                     </div>
-                    <!-- <div class="projects__card">
-                        <div class="projects__card-icon">
-                            <i class="fas fa-bug"></i>
-                        </div>
-                        <h3>Web Application Security Testing</h3>
-                        <p>Performed thorough security testing on web applications using Burp Suite. Identified vulnerabilities such as SQL injection, XSS, and CSRF. Provided detailed vulnerability reports with exploitation proofs and fixes.</p>
-                        <div class="projects__card-tools">
-                            <span>Burp Suite</span>
-                            <span>OWASP</span>
-                            <span>Vulnerability Assessment</span>
-                        </div>
-                        <a href="#" class="projects__card-link">View Details</a>
-                    </div>-->
-                    <!-- <div class="projects__card">
-                        <div class="projects__card-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Vulnerability Scanning with Nessus</h3>
-                        <p>Executed comprehensive vulnerability scans using Nessus on enterprise networks. Analyzed scan results, prioritized vulnerabilities based on CVSS scores, and developed remediation plans.</p>
-                        <div class="projects__card-tools">
-                            <span>Nessus</span>
-                            <span>CVSS</span>
-                            <span>Risk Assessment</span>
-                        </div>
-                        <a href="#" class="projects__card-link">View Details</a>
-                    </div>-->
-                    <!--<div class="projects__card">
-                        <div class="projects__card-icon">
-                            <i class="fab fa-linux"></i>
-                        </div>
-                        <h3>Kali Linux Penetration Testing Lab</h3>
-                        <p>Set up a virtual penetration testing environment using Kali Linux. Performed vulnerability scans, exploited common weaknesses, and documented remediation steps for various web applications and networks.</p>
-                        <div class="projects__card-tools">
-                            <span>Kali Linux</span>
-                            <span>Metasploit</span>
-                            <span>Nmap</span>
-                        </div>
-                        <a href="#" class="projects__card-link">View Details</a>
-                    </div>-->
+
                 </div>
             </div>
         </section>
 
-        <section id="certifications" class="certifications section">
+        <!-- ===== CERTIFICATIONS ===== -->
+        <section id="certifications" class="certifications section" aria-labelledby="certs-title">
             <div class="container">
-                <h2 class="section__title">Certifications & Training</h2>
+                <h2 id="certs-title" class="section__title">Certifications &amp; Training</h2>
                 <div class="certifications__grid">
                     <div class="certifications__badge">
-                        <img src="assets/img/network-security.png" alt="Cisco Network Security Badge" class="certifications__badge-image" loading="lazy" width="80" height="80" decoding="async">
+                        <img src="assets/img/network-security.png"
+                             alt="Cisco Network Security badge"
+                             class="certifications__badge-image"
+                             loading="lazy"
+                             width="80"
+                             height="80"
+                             decoding="async">
                         <h3 class="certifications__badge-title">Cisco Network Security</h3>
                         <p class="certifications__badge-text">Certified 2022</p>
                     </div>
                     <div class="certifications__badge">
-                        <img src="assets/img/cybersecurity-certificate.png" alt="Google Cybersecurity Professional Certificate" class="certifications__badge-image" loading="lazy" width="80" height="80" decoding="async">
-                        <h3 class="certifications__badge-title"> Google Cybersecurity Professional Certificate</h3>
+                        <img src="assets/img/cybersecurity-certificate.png"
+                             alt="Google Cybersecurity Professional Certificate badge"
+                             class="certifications__badge-image"
+                             loading="lazy"
+                             width="80"
+                             height="80"
+                             decoding="async">
+                        <h3 class="certifications__badge-title">Google Cybersecurity Professional Certificate</h3>
                         <p class="certifications__badge-text">In Progress</p>
                     </div>
                     <div class="certifications__badge">
-                        <img src="assets/img/IBM_Cybersecurity_Analyst.png" alt="IBM Cybersecurity Analyst Certificate" class="certifications__badge-image" loading="lazy" width="80" height="80" decoding="async">
+                        <img src="assets/img/IBM_Cybersecurity_Analyst.png"
+                             alt="IBM Cybersecurity Analyst Certificate badge"
+                             class="certifications__badge-image"
+                             loading="lazy"
+                             width="80"
+                             height="80"
+                             decoding="async">
                         <h3 class="certifications__badge-title">IBM Cybersecurity Analyst</h3>
                         <p class="certifications__badge-text">Planned 2027</p>
                     </div>
                 </div>
                 <div class="certifications__links">
-                    <a href="https://www.credly.com/users/salim-younsi/badges#credly" class="btn btn--primary" target="_blank">
-                        <i class="fas fa-award"></i> View All Certifications on Credly
+                    <a href="https://www.credly.com/users/salim-younsi/badges#credly"
+                       class="btn btn--primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fas fa-award" aria-hidden="true"></i> View All Certifications on Credly
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="timeline" class="section">
+        <!-- ===== TIMELINE ===== -->
+        <section id="timeline" class="section" aria-labelledby="timeline-title">
             <div class="container">
-                <h2 class="section__title">My Cybersecurity Journey</h2>
-                <div class="timeline">
-                    <div class="timeline__item">
+                <h2 id="timeline-title" class="section__title">My Cybersecurity Journey</h2>
+                <ol class="timeline">
+                    <li class="timeline__item">
                         <div class="timeline__content">
-                            <h3 class="timeline__title">2022 - Started Network Security Studies</h3>
+                            <h3 class="timeline__title">2022 — Started Network Security Studies</h3>
                             <p class="timeline__text">Began formal education in Network Security, focusing on networking fundamentals and basic security concepts.</p>
                         </div>
-                    </div>
-                    <div class="timeline__item">
+                    </li>
+                    <li class="timeline__item">
                         <div class="timeline__content">
-                            <h3 class="timeline__title">2023 - Hands-on Projects</h3>
+                            <h3 class="timeline__title">2023 — Hands-on Projects</h3>
                             <p class="timeline__text">Built personal lab environment and completed various cybersecurity projects using Linux, Wireshark, and other tools.</p>
                         </div>
-                    </div>
-                    <div class="timeline__item">
+                    </li>
+                    <li class="timeline__item">
                         <div class="timeline__content">
-                            <h3 class="timeline__title">2026 - SOC Analyst Preparation</h3>
+                            <h3 class="timeline__title">2026 — SOC Analyst Preparation</h3>
                             <p class="timeline__text">Currently preparing for SOC Analyst roles through advanced training in SIEM, incident response, and threat hunting.</p>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ol>
             </div>
         </section>
 
-        <section id="github" class="github section">
+        <!-- ===== GITHUB ===== -->
+        <section id="github" class="github section" aria-labelledby="github-title">
             <div class="container">
-                <h2 class="section__title">GitHub Contributions</h2>
+                <h2 id="github-title" class="section__title">GitHub Contributions</h2>
                 <div class="github__content">
-                    <div class="github__stats">
-                        <div class="about__stat">
+                    <div class="github__stats" role="list">
+                        <div class="about__stat" role="listitem">
                             <h3 class="about__stat-number">25+</h3>
                             <p class="about__stat-label">Repositories</p>
                         </div>
-                        <div class="about__stat">
+                        <div class="about__stat" role="listitem">
                             <h3 class="about__stat-number">150+</h3>
                             <p class="about__stat-label">Commits</p>
                         </div>
-                        <div class="about__stat">
+                        <div class="about__stat" role="listitem">
                             <h3 class="about__stat-number">10+</h3>
                             <p class="about__stat-label">Contributions</p>
                         </div>
                     </div>
                     <div class="github__links">
-                        <a href="https://github.com/ysalim152" class="btn btn--primary" target="_blank">
-                            <i class="fab fa-github"></i> View GitHub Profile
+                        <a href="https://github.com/ysalim152"
+                           class="btn btn--primary"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-github" aria-hidden="true"></i> View GitHub Profile
                         </a>
                         <p class="github__links-text">Check out my cybersecurity scripts, tools, and open-source contributions on GitHub.</p>
                     </div>
@@ -346,81 +376,146 @@
             </div>
         </section>
 
-        <section id="contact" class="contact section">
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="contact section" aria-labelledby="contact-title">
             <div class="container">
-                <h2 class="section__title">Contact Me</h2>
+                <h2 id="contact-title" class="section__title">Contact Me</h2>
                 <div class="contact__content">
-                    <div class="contact__info">
+                    <address class="contact__info">
                         <div class="contact__info-item">
-                            <i class="contact__info-icon fas fa-phone"></i>
-                            <span class="contact__info-text">+213 540 235 131</span>
+                            <i class="contact__info-icon fas fa-phone" aria-hidden="true"></i>
+                            <span class="contact__info-text">+213 540 23 51 31</span>
                         </div>
                         <div class="contact__info-item">
-                            <i class="contact__info-icon fas fa-envelope"></i>
-                            <span class="contact__info-text">mass26.sm15@email.com</span>
+                            <i class="contact__info-icon fas fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:mass26.sm15@email.com" class="contact__info-text">mass26.sm15@email.com</a>
                         </div>
                         <div class="contact__info-item">
-                            <i class="contact__info-icon fab fa-linkedin"></i>
-                            <span class="contact__info-text">linkedin.com/in/salim-younsi</span>
+                            <i class="contact__info-icon fab fa-linkedin" aria-hidden="true"></i>
+                            <a href="https://linkedin.com/in/salim-younsi" class="contact__info-text" target="_blank" rel="noopener noreferrer">linkedin.com/in/salim-younsi</a>
                         </div>
                         <div class="contact__info-item">
-                            <i class="contact__info-icon fab fa-github"></i>
-                            <span class="contact__info-text">github.com/ysalim152</span>
+                            <i class="contact__info-icon fab fa-github" aria-hidden="true"></i>
+                            <a href="https://github.com/ysalim152" class="contact__info-text" target="_blank" rel="noopener noreferrer">github.com/ysalim152</a>
                         </div>
                         <div class="contact__info-item">
-                            <i class="contact__info-icon fas fa-map-marker-alt"></i>
+                            <i class="contact__info-icon fas fa-map-marker-alt" aria-hidden="true"></i>
                             <span class="contact__info-text">Tizi-Ouzou 15140, Algeria</span>
                         </div>
-                    </div>
-                    <form class="contact__form" action="https://formsubmit.co/mass26.sm15@gmail.com" method="POST">
+                    </address>
+
+                    <!-- FIX: form uses novalidate + JS validation as backup; hidden inputs kept -->
+                    <form class="contact__form"
+                          id="contact-form"
+                          action="https://formsubmit.co/mass26.sm15@email.com"
+                          method="POST"
+                          novalidate>
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_subject" value="New contact message from portfolio site">
+                        <!-- FIX: added autocomplete attributes and explicit labels (screen-reader only) -->
                         <div class="contact__form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                            <label for="contact-name" class="sr-only">Your Name</label>
+                            <input type="text"
+                                   id="contact-name"
+                                   name="name"
+                                   placeholder="Your Name"
+                                   autocomplete="name"
+                                   required
+                                   minlength="2">
                         </div>
                         <div class="contact__form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
+                            <label for="contact-email" class="sr-only">Your Email</label>
+                            <input type="email"
+                                   id="contact-email"
+                                   name="email"
+                                   placeholder="Your Email"
+                                   autocomplete="email"
+                                   required>
                         </div>
                         <div class="contact__form-group">
-                            <input type="text" name="subject" placeholder="Subject" required>
+                            <label for="contact-subject" class="sr-only">Subject</label>
+                            <input type="text"
+                                   id="contact-subject"
+                                   name="subject"
+                                   placeholder="Subject"
+                                   required
+                                   minlength="3">
                         </div>
                         <div class="contact__form-group">
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <label for="contact-message" class="sr-only">Your Message</label>
+                            <textarea id="contact-message"
+                                      name="message"
+                                      placeholder="Your Message"
+                                      rows="5"
+                                      required
+                                      minlength="10"></textarea>
                         </div>
-                        <button type="submit" class="btn btn--primary">Send Message</button>
-                        <p id="contact-status" class="contact__form-status contact__form-status--hidden"></p>
+                        <button type="submit" class="btn btn--primary">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                        </button>
+                        <p id="contact-status"
+                           class="contact__form-status contact__form-status--hidden"
+                           role="status"
+                           aria-live="polite"></p>
                     </form>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p class="footer__copyright">Copyright &copy; 2026 All rights reserved. Portfolio Cybersecurity Analyst.  | Built with passion for cybersecurity.</p>
-            <!--<div class="footer__links">
-                <a href="#home" class="footer__link">Home</a>
-                <a href="#about" class="footer__link">About</a>
-                <a href="#projects" class="footer__link">Projects</a>
-                <a href="#contact" class="footer__link">Contact</a>
-            </div>-->
+            <p class="footer__copyright">
+                &copy; 2026 Salim YOUNSI — Cybersecurity Analyst Portfolio. Built with passion for cybersecurity.
+            </p>
         </div>
     </footer>
 
-    <button class="scroll-top" aria-label="Scroll to top">
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Project Details Modal -->
-    <div id="project-modal" class="modal">
+    <div id="project-modal"
+         class="modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modal-title"
+         aria-describedby="modal-description">
         <div class="modal__content">
-            <span class="modal__close-btn">&times;</span>
+            <button class="modal__close-btn" id="modal-close" aria-label="Close modal">&times;</button>
             <h3 id="modal-title">Project Title</h3>
             <p id="modal-description">Project details will appear here.</p>
             <div id="modal-tools" class="projects__card-tools"></div>
-            <a href="#" id="modal-link" class="btn btn--primary" target="_blank" style="display: none;">View on GitHub</a>
+            <a href="#"
+               id="modal-link"
+               class="btn btn--primary"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="display:none;">
+                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+            </a>
         </div>
     </div>
-    <script src="/dist/js/bundle.js"></script>
+
+    <!-- Screen-reader only utility class (inline style avoids needing extra CSS file changes) -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- FIX: changed from /dist/js/bundle.js (absolute) to relative path -->
+    <script src="dist/js/bundle.js" defer></script>
 </body>
 </html>
