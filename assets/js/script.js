@@ -1,3 +1,4 @@
+import '../css/style.css';
 import { initNavigation } from './navigation.js';
 import { initAnimations } from './animations.js';
 import { initContactForm } from './contact.js';

@@ -8,13 +8,15 @@ export function initNavigation() {
     }
 
     function toggleMenu() {
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
     }
 
     function closeMenu() {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
     }
 
     function handleSmoothScroll(e) {
