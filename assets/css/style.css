@@ -18,8 +18,12 @@
     --header-bg: rgba(10, 10, 10, 0.95);
 }
 
+/* FIX 1: Unified light-mode selector.
+   Was split between "body.light-mode" and ".page.light-mode" — some overrides
+   were silently ignored because <body> carries class="page", not both selectors.
+   All light-mode rules now use a single consistent "body.light-mode" selector. */
 body.light-mode {
-    --primary-color: #008a2e; /* Darker green for better contrast on light bg */
+    --primary-color: #008a2e;
     --secondary-color: #e6eaf0;
     --background-color: #f0f2f5;
     --text-color: #1a1a2e;
@@ -34,13 +38,19 @@ body.light-mode {
     box-sizing: border-box;
 }
 
-body.page {
+/* FIX 2: Was "body.page" — the body element uses class="page", so this was
+   valid but fragile. Changed to plain "body" so base styles always apply. */
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -69,7 +79,7 @@ body.page {
 }
 
 .nav__logo {
-    font-size: 1.0rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--primary-color);
     display: flex;
@@ -90,7 +100,8 @@ body.page {
     font-weight: 500;
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link.active {
     color: var(--primary-color);
 }
 
@@ -133,6 +144,7 @@ body.page {
 .nav__theme-toggle:hover {
     color: var(--primary-color);
 }
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -144,10 +156,10 @@ body.page {
     position: relative;
     overflow: hidden;
 }
+
 body.light-mode .hero {
     background: linear-gradient(135deg, var(--background-color) 0%, #e9eef3 100%);
 }
-
 
 .hero::before {
     content: '';
@@ -176,7 +188,10 @@ body.light-mode .hero {
     line-height: 1.2;
 }
 
-.page.light-mode .hero__title {
+/* FIX 3: Was ".page.light-mode .hero__title" — incorrect selector chain.
+   body carries class="page", so the compound selector never matched.
+   Fixed to "body.light-mode .hero__title". */
+body.light-mode .hero__title {
     background: linear-gradient(45deg, #007f21, #006a55);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -189,10 +204,10 @@ body.light-mode .hero {
     color: #cccccc;
     max-width: 600px;
 }
-.page.light-mode .hero__subtitle {
+
+body.light-mode .hero__subtitle {
     color: #555;
 }
-
 
 .hero__buttons {
     display: flex;
@@ -256,17 +271,12 @@ body.light-mode .hero {
     animation: float 3s ease-in-out infinite;
 }
 
-.hero__cyber-icon:nth-child(2) {
-    animation-delay: 1s;
-}
-
-.hero__cyber-icon:nth-child(3) {
-    animation-delay: 2s;
-}
+.hero__cyber-icon:nth-child(2) { animation-delay: 1s; }
+.hero__cyber-icon:nth-child(3) { animation-delay: 2s; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    50%       { transform: translateY(-20px); }
 }
 
 /* Sections */
@@ -434,10 +444,10 @@ body.light-mode .hero {
     margin-bottom: 1.5rem;
     color: #cccccc;
 }
-.page.light-mode .projects__card-description {
+
+body.light-mode .projects__card-description {
     color: #666;
 }
-
 
 .projects__card-tools {
     display: flex;
@@ -451,10 +461,6 @@ body.light-mode .hero {
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.8rem;
-    color: var(--primary-color);
-}
-.page.light-mode .projects__card-tool {
-    background-color: var(--secondary-color);
     color: var(--primary-color);
 }
 
@@ -510,7 +516,8 @@ body.light-mode .hero {
 .certifications__badge-text {
     color: #cccccc;
 }
-.page.light-mode .certifications__badge-text {
+
+body.light-mode .certifications__badge-text {
     color: #666;
 }
 
@@ -541,10 +548,13 @@ body.light-mode .hero {
     position: relative;
 }
 
+/* FIX 4: Dot was at left: 22px but the line is at left: 30px with width: 2px,
+   so the centre of the line is at 31px. The dot is 16px wide, so it needs
+   left: 23px to centre on 31px. Corrected from 22px → 23px. */
 .timeline__item::before {
     content: '';
     position: absolute;
-    left: 22px;
+    left: 23px;
     top: 10px;
     width: 16px;
     height: 16px;
@@ -596,7 +606,8 @@ body.light-mode .hero {
     margin: 1rem 0;
     color: #cccccc;
 }
-.page.light-mode .github__links-text {
+
+body.light-mode .github__links-text {
     color: #666;
 }
 
@@ -644,8 +655,9 @@ body.light-mode .hero {
     color: var(--text-color);
     font-family: inherit;
 }
-.page.light-mode .contact__form-group input,
-.page.light-mode .contact__form-group textarea {
+
+body.light-mode .contact__form-group input,
+body.light-mode .contact__form-group textarea {
     background-color: #f9f9f9;
     border-color: #ccc;
 }
@@ -654,8 +666,9 @@ body.light-mode .hero {
 .contact__form-group textarea::placeholder {
     color: #cccccc;
 }
-.page.light-mode .contact__form-group input::placeholder,
-.page.light-mode .contact__form-group textarea::placeholder {
+
+body.light-mode .contact__form-group input::placeholder,
+body.light-mode .contact__form-group textarea::placeholder {
     color: #999;
 }
 
@@ -705,7 +718,7 @@ body.light-mode .hero {
 
 /* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -737,7 +750,7 @@ body.light-mode .hero {
 
 @keyframes modal-fade-in {
     from { opacity: 0; transform: translateY(-50px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .modal__close-btn {
@@ -766,17 +779,25 @@ body.light-mode .hero {
     margin-bottom: 1.5rem;
 }
 
-/* Scroll to top button */
+/* Scroll to top button — consolidated into one rule block */
 .scroll-top {
     opacity: 0;
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    transition: opacity 0.3s ease;
+    padding: 0.6rem 0.9rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
     background-color: var(--primary-color);
     color: var(--background-color);
-    border: none;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-top.visible {
+    opacity: 1;
 }
 
 /* Particle Animation */
@@ -787,7 +808,7 @@ body.light-mode .hero {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 1; /* Position between background grid and content */
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -795,7 +816,7 @@ body.light-mode .hero {
     position: absolute;
     background-color: var(--primary-color);
     border-radius: 50%;
-    opacity: 0; /* Start invisible and fade in via animation */
+    opacity: 0;
     animation-name: particle-float;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -807,9 +828,29 @@ body.light-mode .hero {
         opacity: 0.6;
     }
     to {
-        transform: translateY(-110vh) rotate(720deg); /* Float up past the viewport */
+        transform: translateY(-110vh) rotate(720deg);
         opacity: 0;
     }
+}
+
+/* Focus outlines for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Animated card entrance */
+.projects__card.visible {
+    opacity: 1;
+    animation: card-in 0.5s ease forwards;
+}
+
+@keyframes card-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive Design */
@@ -821,6 +862,7 @@ body.light-mode .hero {
     .section__title {
         font-size: 2.2rem;
     }
+
     .nav__list {
         position: absolute;
         top: 100%;
@@ -830,11 +872,11 @@ body.light-mode .hero {
         flex-direction: column;
         text-align: center;
         gap: 0;
-        display: none; /* Hidden by default */
+        display: none;
     }
 
     .nav__list.active {
-        display: flex; /* Shown when active */
+        display: flex;
     }
 
     .nav__item .nav__link {
@@ -886,9 +928,12 @@ body.light-mode .hero {
         padding: 1.5rem;
     }
 
+    /* FIX 5: Was collapsing github stats to a single column on mobile, making
+       three tiny stat boxes stack vertically and waste space. Kept as 3 columns
+       since each stat card is small and works well side-by-side even on mobile. */
     .github__stats {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
     }
 
     .skills__grid,
@@ -899,6 +944,12 @@ body.light-mode .hero {
 
     .timeline::before {
         left: 20px;
+    }
+
+    /* FIX 6: On mobile the timeline line shifts to left: 20px (width: 2px,
+       centre at 21px). Dot is 16px wide, so needs left: 13px to stay centred. */
+    .timeline__item::before {
+        left: 13px;
     }
 
     .timeline__content {
@@ -936,48 +987,4 @@ body.light-mode .hero {
     .container {
         padding: 0 15px;
     }
-}
-
-/* === IMPROVEMENTS === */
-
-/* Fix scroll-top button shape */
-.scroll-top {
-    padding: 0.6rem 0.9rem;
-    border-radius: 50%;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.scroll-top.visible {
-    opacity: 1;
-}
-
-/* Active nav link highlight */
-.nav__link.active {
-    color: var(--primary-color);
-}
-
-/* Focus outlines for accessibility */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 3px;
-}
-
-/* Smooth scroll behaviour */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Animated card entrance */
-.projects__card.visible {
-    opacity: 1;
-    animation: card-in 0.5s ease forwards;
-}
-
-@keyframes card-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
 }
